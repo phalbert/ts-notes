@@ -1,9 +1,9 @@
 function GetAllBooks(){
     let books = [
-        { title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
-        { title: 'A Farewell to Armd', author: 'Ernest Hemmingway', available: false, category: Category.Fiction },
-        { title: 'Know Why', author: 'Maya Angelou', available: true, category: Category.Poetry },
-        {title: 'moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
+        { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
+        { id: 2, title: 'A Farewell to Armd', author: 'Ernest Hemmingway', available: false, category: Category.Fiction },
+        { id: 3, title: 'Know Why', author: 'Maya Angelou', available: true, category: Category.Poetry },
+        { id: 4, title: 'moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
     ]
 
     return books
@@ -47,5 +47,26 @@ function LogBookTitles(titles: string[]){
         console.log(title)
     }
 }
-const filteredBooks = GetBookTitlesByCategory(Category.Poetry)
-LogBookTitles(filteredBooks)
+
+function GetBookByID(id: number){
+    const allBooks = GetAllBooks()
+    return allBooks.filter(book => book.id === id)[0]
+}
+
+function CreateCustomerID(name: string, id: number): string{
+    return name + id
+}
+
+
+//************************* */
+// const filteredBooks = GetBookTitlesByCategory(Category.Fiction)
+// filteredBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val))
+
+let x: number
+x = 5
+
+let IdGenerator: (chars: string, nums: number) => string
+IdGenerator = (name: string, id: number) => { return id + name }
+
+let myID = IdGenerator('daniel', 10);
+console.log(myID);
